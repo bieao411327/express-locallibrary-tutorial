@@ -14,7 +14,7 @@ var app = express();
 
 // 设置数据库
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('connected', () => console.log('MongoDB connection successful'));
